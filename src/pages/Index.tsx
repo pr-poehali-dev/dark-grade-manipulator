@@ -289,7 +289,6 @@ const Index = () => {
             {[
               { id: 'home', label: 'Главная', icon: 'Home' },
               { id: 'grades', label: 'Оценки', icon: 'GraduationCap' },
-              { id: 'homework', label: 'Задания', icon: 'BookOpen' },
               { id: 'quarters', label: 'Четверти', icon: 'Trophy' },
               { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
             ].map(tab => (
@@ -380,17 +379,19 @@ const Index = () => {
                 <CardContent>
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     {subject.grades.map(grade => (
-                      <button
-                        key={grade.id}
-                        onClick={() => handleEditGrade(subject.id, grade.id, grade.value)}
-                        className="p-4 bg-muted rounded-lg hover:bg-muted/70 transition-all cursor-pointer group"
-                      >
-                        <div className={`w-12 h-12 mx-auto rounded-full ${getGradeColor(grade.value)} flex items-center justify-center text-2xl font-bold mb-2 group-hover:scale-110 transition-transform`}>
+                      <div key={grade.id} className="relative p-4 bg-muted rounded-lg group">
+                        <button
+                          onClick={() => handleEditGrade(subject.id, grade.id, grade.value)}
+                          className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-background/50 rounded"
+                        >
+                          <Icon name="Pencil" size={12} className="text-muted-foreground" />
+                        </button>
+                        <div className={`w-12 h-12 mx-auto rounded-full ${getGradeColor(grade.value)} flex items-center justify-center text-2xl font-bold mb-2`}>
                           {grade.value}
                         </div>
                         <p className="text-xs text-muted-foreground text-center">{grade.date}</p>
                         <p className="text-xs text-center mt-1">{grade.topic}</p>
-                      </button>
+                      </div>
                     ))}
                   </div>
                 </CardContent>
@@ -399,36 +400,7 @@ const Index = () => {
           </div>
         )}
 
-        {activeTab === 'homework' && (
-          <div className="space-y-4 animate-fade-in">
-            {homework.map(hw => (
-              <Card key={hw.id} className="hover:bg-card/80 transition-all">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="outline">{hw.subject}</Badge>
-                        <span className="text-sm text-muted-foreground flex items-center gap-1">
-                          <Icon name="Clock" size={14} />
-                          до {hw.deadline}
-                        </span>
-                      </div>
-                      <p className="text-foreground">{hw.task}</p>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleEditHomework(hw.id, hw.task)}
-                      className="hover-scale"
-                    >
-                      <Icon name="Edit" size={18} />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+
 
         {activeTab === 'quarters' && (
           <div className="space-y-6 animate-fade-in">
@@ -442,16 +414,18 @@ const Index = () => {
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {subjects.map(subject => (
-                    <button
-                      key={subject.id}
-                      onClick={() => handleEditQuarter(subject.id, subject.quarterGrade)}
-                      className="p-6 bg-muted rounded-lg hover:bg-muted/70 transition-all cursor-pointer group"
-                    >
+                    <div key={subject.id} className="relative p-6 bg-muted rounded-lg group">
+                      <button
+                        onClick={() => handleEditQuarter(subject.id, subject.quarterGrade)}
+                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-background/50 rounded"
+                      >
+                        <Icon name="Pencil" size={14} className="text-muted-foreground" />
+                      </button>
                       <h3 className="font-semibold text-lg mb-3">{subject.name}</h3>
-                      <div className={`w-20 h-20 mx-auto rounded-full ${getGradeColor(subject.quarterGrade || 0)} flex items-center justify-center text-4xl font-bold group-hover:scale-110 transition-transform`}>
+                      <div className={`w-20 h-20 mx-auto rounded-full ${getGradeColor(subject.quarterGrade || 0)} flex items-center justify-center text-4xl font-bold`}>
                         {subject.quarterGrade || '—'}
                       </div>
-                    </button>
+                    </div>
                   ))}
                 </div>
               </CardContent>
@@ -460,7 +434,38 @@ const Index = () => {
         )}
 
         {activeTab === 'schedule' && (
-          <div className="space-y-4 animate-fade-in">
+          <div className="space-y-6 animate-fade-in">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Icon name="BookOpen" size={24} />
+                  Домашние задания
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {homework.map(hw => (
+                    <div key={hw.id} className="relative p-4 bg-muted rounded-lg group">
+                      <button
+                        onClick={() => handleEditHomework(hw.id, hw.task)}
+                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-background/50 rounded"
+                      >
+                        <Icon name="Pencil" size={14} className="text-muted-foreground" />
+                      </button>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge variant="outline">{hw.subject}</Badge>
+                        <span className="text-sm text-muted-foreground flex items-center gap-1">
+                          <Icon name="Clock" size={14} />
+                          до {hw.deadline}
+                        </span>
+                      </div>
+                      <p className="text-foreground">{hw.task}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
             {schedule.map((day, index) => (
               <Card key={index}>
                 <CardHeader>
