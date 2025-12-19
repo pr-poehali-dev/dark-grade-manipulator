@@ -42,46 +42,164 @@ const Index = () => {
   const [subjects, setSubjects] = useState<Subject[]>([
     {
       id: '1',
-      name: 'Математика',
-      grades: [
-        { id: '1', value: 5, date: '15.12', topic: 'Алгебра' },
-        { id: '2', value: 4, date: '16.12', topic: 'Геометрия' },
-        { id: '3', value: 5, date: '18.12', topic: 'Контрольная' },
-      ],
-      quarterGrade: 5
-    },
-    {
-      id: '2',
       name: 'Русский язык',
       grades: [
-        { id: '4', value: 4, date: '14.12', topic: 'Диктант' },
-        { id: '5', value: 5, date: '17.12', topic: 'Сочинение' },
+        { id: '1', value: 4, date: '14.12', topic: 'Диктант' },
+        { id: '2', value: 5, date: '17.12', topic: 'Сочинение' },
       ],
       quarterGrade: 4
     },
     {
+      id: '2',
+      name: 'Литература',
+      grades: [
+        { id: '3', value: 5, date: '15.12', topic: 'Анализ стихотворения' },
+        { id: '4', value: 4, date: '18.12', topic: 'Тест' },
+      ],
+      quarterGrade: 5
+    },
+    {
       id: '3',
+      name: 'Родной язык и родная литература',
+      grades: [
+        { id: '5', value: 5, date: '16.12', topic: 'Устный ответ' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '4',
+      name: 'Иностранный язык',
+      grades: [
+        { id: '6', value: 4, date: '15.12', topic: 'Грамматика' },
+        { id: '7', value: 5, date: '19.12', topic: 'Говорение' },
+      ],
+      quarterGrade: 4
+    },
+    {
+      id: '5',
+      name: 'Алгебра',
+      grades: [
+        { id: '8', value: 5, date: '15.12', topic: 'Уравнения' },
+        { id: '9', value: 4, date: '16.12', topic: 'Контрольная' },
+        { id: '10', value: 5, date: '18.12', topic: 'Самостоятельная' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '6',
+      name: 'Геометрия',
+      grades: [
+        { id: '11', value: 4, date: '14.12', topic: 'Теоремы' },
+        { id: '12', value: 5, date: '19.12', topic: 'Задачи' },
+      ],
+      quarterGrade: 4
+    },
+    {
+      id: '7',
+      name: 'Информатика',
+      grades: [
+        { id: '13', value: 5, date: '15.12', topic: 'Программирование' },
+        { id: '14', value: 5, date: '17.12', topic: 'Практическая' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '8',
+      name: 'История',
+      grades: [
+        { id: '15', value: 4, date: '14.12', topic: 'Древний мир' },
+        { id: '16', value: 4, date: '18.12', topic: 'Тест' },
+      ],
+      quarterGrade: 4
+    },
+    {
+      id: '9',
+      name: 'Обществознание',
+      grades: [
+        { id: '17', value: 5, date: '16.12', topic: 'Конституция' },
+        { id: '18', value: 4, date: '19.12', topic: 'Устный ответ' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '10',
+      name: 'География',
+      grades: [
+        { id: '19', value: 4, date: '15.12', topic: 'Карты' },
+        { id: '20', value: 5, date: '17.12', topic: 'Контурная карта' },
+      ],
+      quarterGrade: 4
+    },
+    {
+      id: '11',
+      name: 'Биология',
+      grades: [
+        { id: '21', value: 5, date: '14.12', topic: 'Клетка' },
+        { id: '22', value: 5, date: '18.12', topic: 'Лабораторная' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '12',
       name: 'Физика',
       grades: [
-        { id: '6', value: 5, date: '15.12', topic: 'Лабораторная' },
-        { id: '7', value: 5, date: '19.12', topic: 'Тест' },
+        { id: '23', value: 5, date: '15.12', topic: 'Механика' },
+        { id: '24', value: 4, date: '19.12', topic: 'Задачи' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '13',
+      name: 'Химия',
+      grades: [
+        { id: '25', value: 4, date: '16.12', topic: 'Реакции' },
+        { id: '26', value: 5, date: '18.12', topic: 'Практическая' },
+      ],
+      quarterGrade: 4
+    },
+    {
+      id: '14',
+      name: 'Труд (Технология)',
+      grades: [
+        { id: '27', value: 5, date: '15.12', topic: 'Проект' },
+        { id: '28', value: 5, date: '19.12', topic: 'Практическая' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '15',
+      name: 'Физическая культура',
+      grades: [
+        { id: '29', value: 5, date: '14.12', topic: 'Нормативы' },
+        { id: '30', value: 5, date: '17.12', topic: 'Техника' },
+      ],
+      quarterGrade: 5
+    },
+    {
+      id: '16',
+      name: 'Основы безопасности и защиты Родины',
+      grades: [
+        { id: '31', value: 5, date: '16.12', topic: 'Теория' },
+        { id: '32', value: 4, date: '19.12', topic: 'Тест' },
       ],
       quarterGrade: 5
     },
   ]);
 
   const [homework, setHomework] = useState<Homework[]>([
-    { id: '1', subject: 'Математика', task: 'Решить задачи №234-240', deadline: '20.12.2024' },
+    { id: '1', subject: 'Алгебра', task: 'Решить задачи №234-240', deadline: '20.12.2024' },
     { id: '2', subject: 'Русский язык', task: 'Написать эссе про зиму', deadline: '21.12.2024' },
     { id: '3', subject: 'Физика', task: 'Подготовиться к лабораторной работе', deadline: '22.12.2024' },
+    { id: '4', subject: 'История', task: 'Выучить параграф 15-16', deadline: '21.12.2024' },
+    { id: '5', subject: 'Химия', task: 'Оформить практическую работу', deadline: '23.12.2024' },
   ]);
 
   const [schedule] = useState<ScheduleDay[]>([
-    { day: 'Понедельник', lessons: ['Математика', 'Русский язык', 'История', 'Физика', 'Английский'] },
-    { day: 'Вторник', lessons: ['Физика', 'Химия', 'Математика', 'Литература', 'География'] },
-    { day: 'Среда', lessons: ['Информатика', 'Математика', 'Биология', 'Русский язык', 'ОБЖ'] },
-    { day: 'Четверг', lessons: ['Английский', 'История', 'Физика', 'Математика', 'Физкультура'] },
-    { day: 'Пятница', lessons: ['Химия', 'Литература', 'География', 'Обществознание', 'Технология'] },
+    { day: 'Понедельник', lessons: ['Алгебра', 'Русский язык', 'История', 'Физика', 'Иностранный язык', 'Физическая культура'] },
+    { day: 'Вторник', lessons: ['Физика', 'Химия', 'Геометрия', 'Литература', 'География', 'Труд (Технология)'] },
+    { day: 'Среда', lessons: ['Информатика', 'Алгебра', 'Биология', 'Русский язык', 'Обществознание'] },
+    { day: 'Четверг', lessons: ['Иностранный язык', 'История', 'Физика', 'Геометрия', 'Физическая культура', 'ОБЗР'] },
+    { day: 'Пятница', lessons: ['Химия', 'Литература', 'География', 'Родной язык и родная литература', 'Биология'] },
   ]);
 
   const handleEditGrade = (subjectId: string, gradeId: string, currentValue: number) => {
