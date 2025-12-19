@@ -384,7 +384,7 @@ const Index = () => {
                           onClick={() => handleEditGrade(subject.id, grade.id, grade.value)}
                           className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-background/50 rounded"
                         >
-                          <Icon name="Pencil" size={12} className="text-muted-foreground" />
+                          <Icon name="MessageSquare" size={12} className="text-muted-foreground" />
                         </button>
                         <div className={`w-12 h-12 mx-auto rounded-full ${getGradeColor(grade.value)} flex items-center justify-center text-2xl font-bold mb-2`}>
                           {grade.value}
@@ -419,7 +419,7 @@ const Index = () => {
                         onClick={() => handleEditQuarter(subject.id, subject.quarterGrade)}
                         className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-background/50 rounded"
                       >
-                        <Icon name="Pencil" size={14} className="text-muted-foreground" />
+                        <Icon name="MessageSquare" size={14} className="text-muted-foreground" />
                       </button>
                       <h3 className="font-semibold text-lg mb-3">{subject.name}</h3>
                       <div className={`w-20 h-20 mx-auto rounded-full ${getGradeColor(subject.quarterGrade || 0)} flex items-center justify-center text-4xl font-bold`}>
@@ -450,7 +450,7 @@ const Index = () => {
                         onClick={() => handleEditHomework(hw.id, hw.task)}
                         className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-background/50 rounded"
                       >
-                        <Icon name="Pencil" size={14} className="text-muted-foreground" />
+                        <Icon name="MessageSquare" size={14} className="text-muted-foreground" />
                       </button>
                       <div className="flex items-center gap-2 mb-2">
                         <Badge variant="outline">{hw.subject}</Badge>
