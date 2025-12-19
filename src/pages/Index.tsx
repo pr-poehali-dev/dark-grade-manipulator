@@ -164,7 +164,7 @@ const Index = () => {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl font-bold text-primary">Электронный дневник</h1>
             <Badge variant="outline" className="text-sm">
-              Иванов Иван Иванович • 9А класс
+              Котов Андрей • 8Е класс
             </Badge>
           </div>
           <nav className="flex gap-2 overflow-x-auto pb-2">
