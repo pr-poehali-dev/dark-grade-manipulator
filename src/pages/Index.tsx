@@ -412,17 +412,17 @@ const Index = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                   {subjects.map(subject => (
-                    <div key={subject.id} className="relative p-6 bg-muted rounded-lg group">
+                    <div key={subject.id} className="relative p-4 bg-muted rounded-lg group">
                       <button
                         onClick={() => handleEditQuarter(subject.id, subject.quarterGrade)}
-                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-background/50 rounded"
+                        className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-background/50 rounded"
                       >
-                        <Icon name="MessageSquare" size={14} className="text-muted-foreground" />
+                        <Icon name="MessageSquare" size={12} className="text-muted-foreground" />
                       </button>
-                      <h3 className="font-semibold text-lg mb-3">{subject.name}</h3>
-                      <div className={`w-20 h-20 mx-auto rounded-full ${getGradeColor(subject.quarterGrade || 0)} flex items-center justify-center text-4xl font-bold`}>
+                      <h3 className="font-semibold text-sm mb-2 line-clamp-2">{subject.name}</h3>
+                      <div className={`w-14 h-14 mx-auto rounded-full ${getGradeColor(subject.quarterGrade || 0)} flex items-center justify-center text-2xl font-bold`}>
                         {subject.quarterGrade || '—'}
                       </div>
                     </div>
