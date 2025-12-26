@@ -454,10 +454,6 @@ const Index = () => {
                       </button>
                       <div className="flex items-center gap-2 mb-2">
                         <Badge variant="outline">{hw.subject}</Badge>
-                        <span className="text-sm text-muted-foreground flex items-center gap-1">
-                          <Icon name="Clock" size={14} />
-                          до {hw.deadline}
-                        </span>
                       </div>
                       <p className="text-foreground">{hw.task}</p>
                     </div>
